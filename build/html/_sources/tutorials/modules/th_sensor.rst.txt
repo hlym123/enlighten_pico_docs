@@ -4,29 +4,38 @@
 
 湿度测量范围：0~100%；误差：±2%
 
+.. figure:: th_sensor.png 
+   :width: 200
+   :align: center
+
 应用编程接口说明
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-	'''
-	 类：温湿度传感器 
-	 参数:
-		port: 端口号 -- 1~8 
-	'''
-	class th_sensor(port)
-	
-	'''
-	 方法：读取温度
-	 返回值：温度 
-	'''
-	th_sensor.read_temperature()
-	
-	'''
-	 方法：读取湿度
-	 返回值：湿度 
-	'''
-	th_sensor.read_humidity()
+    '''
+     导入 th_sensor 模块 
+    '''
+    from openaie import th_sensor
+
+    '''
+     类：温湿度传感器 
+     参数:
+        port: 端口号 -- 1~8 
+    '''
+    class th_sensor(port)
+    
+    '''
+     方法：读取温度
+     返回值：温度 
+    '''
+    th_sensor.read_temperature()
+    
+    '''
+     方法：读取湿度
+     返回值：湿度 
+    '''
+    th_sensor.read_humidity()
 
 
 
@@ -50,5 +59,7 @@
         print(info)
         lcd.draw_string(10, 16, info, 0x0000FF, 0)
         time.sleep_ms(1000)
+		
+------------------------------------------------------
     
     

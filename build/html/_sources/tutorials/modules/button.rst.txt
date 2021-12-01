@@ -2,18 +2,26 @@
 ======================================================
 按键按下接低电平，弹起接高电平。
 
-
+.. figure:: button.png 
+   :width: 200
+   :align: center
+   
 应用编程接口说明
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     '''
-     类：按键组 
-	 参数:
-		port: 端口号 -- 1~8 
+     导入 button 模块 
     '''
-    class button(port)
+    from openaie import button
+
+    '''
+     类：按键组 
+     参数:
+        port: 端口号 -- 1~8 
+    '''
+    class button_group(port)
     
     '''
      方法：检查按键是否按下
@@ -23,7 +31,7 @@
         按键按下 -- True 
         按键弹起 -- False
     ''' 
-    button.is_press(index) 
+    button_group.is_press(index) 
     
 
 案例
@@ -34,9 +42,9 @@
 ::
 
     import time 
-    from openaie import button # 导入按键模块
+    from openaie import button_group # 导入按键模块
     
-    bt2 = button(2) # 按键模块连接到端口2 
+    bt2 = button_group(2) # 按键模块连接到端口2 
     while True:
         if bt2.is_press(1) :
             print("press")
@@ -50,10 +58,10 @@
 ::
 
     import time
-    from openaie import button, rgb_led
+    from openaie import button_group, rgb_led
     
     rgb = rgb_led(1)
-    bt2 = button(2)   
+    bt2 = button_group(2)   
     while (True):
         if bt2.is_press(1): # 检测到按键1按下
             time.sleep_ms(10)
@@ -73,6 +81,10 @@
                 rgb.display()
             while (bt2.is_press(2)) : # 等待按键2释放
                 pass  
+                
+------------------------------------------------------
+
+
                 
                 
                 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. 语音识别模块 &mdash; OpenAIE_Docs OpenAIE documention 文档</title>
+  <title>7. 语音识别模块 &mdash; 开元编程开发套件 KaiYuan documention 文档</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> OpenAIE_Docs
+            <a href="../../index.html" class="icon icon-home"> 开元编程开发套件
           
 
           
@@ -81,11 +81,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">启蒙开发套件教程</span></p>
+              <p class="caption"><span class="caption-text">教程</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">使用说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onboard/index.html">板载模块</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">拓展模块</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../dev_board/index.html">控制器</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">功能模块</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rgb_led.html">1. 可编程全彩LED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="button.html">2. 按键组</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potentiometer.html">3. 电位器</a></li>
@@ -121,7 +121,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">OpenAIE_Docs</a>
+          <a href="../../index.html">开元编程开发套件</a>
         
       </nav>
 
@@ -152,7 +152,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">拓展模块</a> &raquo;</li>
+          <li><a href="index.html">功能模块</a> &raquo;</li>
         
       <li><span class="section-number">7. </span>语音识别模块</li>
     
@@ -177,6 +177,9 @@
 <h1><span class="section-number">7. </span>语音识别模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>语音识别模块，通信接口I2C。模块上电处于休眠状态，在语音唤醒后为正常运行状态，此时状态指示灯亮蓝色。
 每次唤醒触发运行时长15秒，可以重复触发。</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/asr.png"><img alt="../../_images/asr.png" src="../../_images/asr.png" style="width: 260px;" /></a>
+</div>
 <div class="section" id="id2">
 <h2><span class="section-number">7.1. </span>“唤醒词”和“命令词”<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>语音识别关键词分“唤醒词”和“命令词”，</p>
@@ -240,9 +243,14 @@
 <div class="section" id="id5">
 <h2><span class="section-number">7.4. </span>应用编程接口说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> 导入 asr 模块</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="n">asr</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd"> 类：语音识别模块</span>
 <span class="sd"> 参数:</span>
-<span class="sd">        port: 端口号 -- 1~8</span>
+<span class="sd">    port: 端口号 -- 1~8</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="k">class</span> <span class="nc">asr</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
@@ -280,7 +288,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">openaie</span> <span class="k">import</span> <span class="o">*</span>
 
-<span class="n">asr</span> <span class="o">=</span> <span class="n">asr</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>         <span class="c1"># 语音识别模块连接 端口7</span>
+<span class="n">asr</span> <span class="o">=</span> <span class="n">asr</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>      <span class="c1"># 语音识别模块连接 端口7</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">motor_fan</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># 电机风扇模块连接 端口6</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -297,6 +305,7 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
+<hr class="docutils" />
 </div>
 </div>
 
@@ -320,7 +329,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, loki
+        &copy; Copyright Buintel
 
     </p>
   </div>

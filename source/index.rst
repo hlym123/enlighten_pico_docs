@@ -4,18 +4,16 @@
    contain the root `toctree` directive.
 
  
-
-
-启蒙 MicroPython 开发套件 
+开元编程开发套件 
 ==============================================
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: 启蒙开发套件教程
+   :caption: 教程
 
    tutorials/intro.rst
-   tutorials/onboard/index.rst
+   tutorials/dev_board/index.rst
    tutorials/modules/index.rst
    tutorials/turtle.rst
    
@@ -27,7 +25,7 @@
    micropython/index.rst
    
    
- 
+                                                                                   
 Indices and tables
 ==================
 

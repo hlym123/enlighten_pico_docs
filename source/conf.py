@@ -17,12 +17,12 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'OpenAIE_Docs'
-copyright = '2020, loki'
+project = '开元编程开发套件'
+copyright = 'Buintel'
 author = 'loki'
 
 # The full version, including alpha/beta/rc tags
-release = 'OpenAIE documention'
+release = 'KaiYuan documention'
 
 
 # -- General configuration ---------------------------------------------------
